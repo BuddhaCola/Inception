@@ -22,10 +22,11 @@ ARG DB_NAME
 ARG DB_HOST
 ARG DB_PASSWORD
 ARG DB_USER
+ARG DOMAIN_NAME
 
 WORKDIR	/var/www/wordpress
-RUN wp core download --allow-root --path=/var/www/wordpress
-RUN wp config create --dbhost=$DB_HOST --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --skip-check --allow-root
+COPY	tools/setup.sh .
+RUN		sh setup.sh && rm setup.sh
 # RUN cat wp-config.php && sleep 5
 
 

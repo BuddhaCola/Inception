@@ -18,6 +18,11 @@
 --
 -- Table structure for table `wp_commentmeta`
 --
+CREATE DATABASE IF NOT EXISTS $DB_NAME DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;;
+CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
+GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+USE '$DB_NAME';
 
 DROP TABLE IF EXISTS `wp_commentmeta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

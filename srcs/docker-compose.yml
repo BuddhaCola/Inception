@@ -67,11 +67,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./db
+      device: /home/wtaylor/data/db
   wp:
     name: wp
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ./wp
+      device: /home/wtaylor/data/wp
