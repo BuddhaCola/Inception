@@ -30,6 +30,7 @@ services:
         - DB_HOST
         - DB_PASSWORD
         - DB_USER
+        - DOMAIN_NAME
     env_file:
       - .env
     image: wordpress
