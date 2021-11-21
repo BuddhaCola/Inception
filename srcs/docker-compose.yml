@@ -63,11 +63,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: data/db
+      device: ~/data/db
   wp:
     name: wp
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: data/wp
+      device: ~/data/wp
