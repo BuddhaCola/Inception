@@ -11,8 +11,6 @@ services:
     container_name: nginx
     build: 
       context: ./requirements/Nginx
-      # args:
-      #   - DB_NAME
     image: nginx
     volumes:
       - wp:/var/www/
@@ -20,8 +18,6 @@ services:
       - "443:443"
     networks:
       - localhost
-    # env_file:
-    #   - .env
     restart: always
   wordpress:
     depends_on:
@@ -67,11 +63,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/wtaylor/data/db
+      device: data/db
   wp:
     name: wp
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/wtaylor/data/wp
+      device: data/wp

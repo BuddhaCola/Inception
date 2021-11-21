@@ -4,11 +4,6 @@ RUN		apt-get update
 RUN		apt-get upgrade -y
 RUN		apt-get install -y php php-mysqli php-fpm curl wget
 
-# RUN sed -i "s/127.0.0.1/wordpress/" /etc/php/php-fpm7.3/www.conf
-
-
-# RUN		wget https://wordpress.org/latest.tar.gz && tar -xf latest.tar.gz && rm latest.tar.gz
-
 COPY	./wtaylor.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -27,7 +22,5 @@ ARG DOMAIN_NAME
 WORKDIR	/var/www/wordpress
 COPY	tools/setup.sh .
 RUN		sh setup.sh && rm setup.sh
-# RUN cat wp-config.php && sleep 5
-
 
 CMD		/usr/sbin/php-fpm7.3 -F
