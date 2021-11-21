@@ -49,7 +49,7 @@ services:
         - DB_USER
     image: mariadb
     volumes:
-    - db:/var/lib/mariadb
+    - db:/var/lib/mysql
     networks:
       - localhost
     env_file:
